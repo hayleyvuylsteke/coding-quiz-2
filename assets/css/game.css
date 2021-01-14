@@ -29,11 +29,13 @@
 }
 
 .correct {
-    background: linear-gradient(32deg, rgb(186, 199, 186)) 0%, rgb(41, 232, 11) 100%;
+    /*background: linear-gradient(32deg, rgb(186, 199, 186)) 0%, rgb(41, 232, 11) 100%;*/
+    background-color: rgb(41, 232, 11);
 }
 
-.correct {
-    background: linear-gradient(32deg, red) 0%, rgb(224, 11, 111, 1) 100%;
+.incorrect {
+    /*background: linear-gradient(32deg, red) 0%, rgb(224, 11, 111, 1) 100%;*/
+    background-color: rgb(224, 11, 111);
 }
 
 @media screen and (max-width 768 px) {

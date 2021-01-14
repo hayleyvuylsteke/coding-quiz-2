@@ -13,18 +13,17 @@
         </header>
         <div class="quiz-content-box">
             <div id="home" class="flex-column flex-center">
-                <h2>You've completed the quiz!</h2>
-                <h4>Final Score</h4>
-                <h4 id="final-score"> </h4>
+                <h2 id="end-header">You've completed the quiz!</h2>
+                <h4 id="final-score" class="final-score">Final Score</h4>
                 <form class="end-form-container">
                     <p>Enter your name below to save your score</p>
                     <input type="text" name="name" id="username" placeholder="Enter your name">
                     <br>
                     <button class="btn" id="saveScoreBtn" type="submit" onClick="saveHighScore(event)" disabled>Save</button>
                 </form>
-                <a href="/game.html" class="btn">Play again ▶</a>
+                <a href="game.html" class="btn">Play again ▶</a>
                 <br>
-                <a href="/highscores.html" id="high-score-btn" class="btn">High Scores</a>
+                <a href="highscores.html" id="high-score-btn" class="btn">High Scores</a>
             </div>
         </div>
     </div>

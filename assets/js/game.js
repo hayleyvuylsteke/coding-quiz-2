@@ -1,9 +1,8 @@
 /* Select items for targeting */
 
 const question = document.querySelector('#question');
-const choice = Array.from(document.querySelectorAll('.choice.text'));
+const choice = Array.from(document.querySelectorAll('.choice-text'));
 const progressText = document.querySelector('#progressText');
-const timerText = document.querySelector(".quiz-timer");
 const scoreText = document.querySelector(".score-text")
 
 /*End of select items */
@@ -120,14 +119,15 @@ startGame = () => {
     questionCounter = 0
     score = 0
     availableQuestions = [...questions]
-    getNewQuestion()
+    getNewQuestion();
+    setInterval(updateCountdown, 1000);
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.Length == 0 || questionCounter > MAX_QUESTIONS) {
+    if(availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign("/end.html")
+        return window.location.assign("end.html")
     }
 
     questionCounter++
@@ -147,48 +147,53 @@ getNewQuestion = () => {
     acceptingAnswers = true
 }
 
-choice.forEach(choice => {
-    choice.addEventListener('click', e =>{
-        if(!acceptingAnswers) return
 
-        acceptingAnswers = false
-        const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
-
-        let classToApply = selectedAnswer == currentQuestions.answer ? 'correct' : 'incorrect'
-
-        if(classToApply == 'correct'){
-            incrementScore(SCORE_POINTS)
+choice.forEach((choice) => {
+    choice.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('in choice for each');
+        if (!acceptingAnswers) return;
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset['number'];
+        let classToApply =
+            selectedAnswer == currentQuestions.answer ? 'correct' : 'incorrect';
+        if (classToApply == 'correct') {
+            console.log('Your Choice is Correct');
+            incrementScore(SCORE_POINTS);
         }
 
-        selectedChoice.parentElement.classList.add(classToApply)
-
+        selectedChoice.parentElement.classList.add(classToApply);
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
-            getNewQuestion()
-
-        }, 1000)
-    })
-})
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        }, 500);
+    });
+});
 
 incrementScore = num => {
     score +=num
-    scoreText.innerText = score
+    scoreText.innerText = "Score: " + score
 }
 
 startGame()
 
 // timer
-function timer(){
-    var counter = 10;
-    var countdown = function(){
+let startTime = 90;
 
-        if (counter === 0) {
-            alert("You've run out of time!")
-            clearInterval(startCountdown);
-        }
-    }
-    var startCountDown = setInterval(countdown, 1000);{
-        timerText.innerText = countdown
-    }
+const countdownE1 = document.querySelector(".quiz-timer");
+
+function updateCountdown() {
+
+    countdownE1.innerHTML = "Time Remaining: " + startTime
+
+    startTime--;
+
+    if (startTime <= -2) {
+    localStorage.setItem('mostRecentScore', score);
+    return window.location.assign("end.html");
+    }   
+
 }
+
+

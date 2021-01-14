@@ -1,13 +1,14 @@
 const username = document.querySelector('#username')
 const saveScoreBtn = document.querySelector('#saveScoreBtn')
-const finalScore = document.querySelector('#finalScore')
+const finalScore = document.querySelector('#final-score')
 const mostRecentScore = localStorage.getItem('mostRecentScore')
+const timeRanOut = localStorage.getItem('timeRanOut')
 
-const highScores = JSON.parse(localStorage.getItem9('highScores')) || []
+const highScores = JSON.parse(localStorage.getItem('highScores')) || []
 
 const MAX_HIGH_SCORES = 5
 
-finalScore.innerText = mostRecentScore
+finalScore.innerHTML = "Your Score: " + mostRecentScore
 
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value
@@ -31,4 +32,9 @@ saveHighScore = e => {
 
     localStorage.SetItem('highScores', JSON.stringify(highScores))
     window.location.assign('/')
+}
+
+if(timeRanOut != null) {
+    var headerText = document.querySelector('#end-header');
+    headerText.innerHTML ="You've run out of time!"
 }
