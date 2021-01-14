@@ -34,27 +34,7 @@ saveHighScore = e => {
     window.location.assign('highscores.html') 
 } 
 
-/*var createTaskHandler = function () {
-    const score = {
-        score: mostRecentScore,
-        name: username.value
-    }
-
-    highScores.push(score)
-
-    highScores.sort((a,b) => {
-        return b.scomre - a.score
-    })
-
-    highScores.splice(5)
-
-    localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('/')
-}
-
-saveScoreBtn.addEventListener("click", createTaskHandler) */
-
-if(timeRanOut != null) {
+if(timeRanOut === "yes") {
     var headerText = document.querySelector('#end-header');
     headerText.innerHTML ="You've run out of time!"
 }

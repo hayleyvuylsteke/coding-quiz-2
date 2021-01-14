@@ -159,8 +159,9 @@ choice.forEach((choice) => {
         let classToApply =
             selectedAnswer == currentQuestions.answer ? 'correct' : 'incorrect';
         if (classToApply == 'correct') {
-            console.log('Your Choice is Correct');
             incrementScore(SCORE_POINTS);
+        } else {
+            startTime = startTime -3;
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
@@ -189,11 +190,11 @@ function updateCountdown() {
 
     startTime--;
 
-    if (startTime <= -2) {
+    if (startTime === -2) {
     localStorage.setItem('mostRecentScore', score);
+    localStorage.setItem('timeRanOut', 'yes');
     return window.location.assign("end.html");
     }   
 
 }
-
 
