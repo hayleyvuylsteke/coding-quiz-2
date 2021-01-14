@@ -190,7 +190,7 @@ function updateCountdown() {
 
     startTime--;
 
-    if (startTime === -2) {
+    if (startTime === -1) {
     localStorage.setItem('mostRecentScore', score);
     localStorage.setItem('timeRanOut', 'yes');
     return window.location.assign("end.html");
