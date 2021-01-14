@@ -30,9 +30,29 @@ saveHighScore = e => {
 
     highScores.splice(5)
 
-    localStorage.SetItem('highScores', JSON.stringify(highScores))
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+    window.location.assign('highscores.html') 
+} 
+
+/*var createTaskHandler = function () {
+    const score = {
+        score: mostRecentScore,
+        name: username.value
+    }
+
+    highScores.push(score)
+
+    highScores.sort((a,b) => {
+        return b.scomre - a.score
+    })
+
+    highScores.splice(5)
+
+    localStorage.setItem('highScores', JSON.stringify(highScores))
     window.location.assign('/')
 }
+
+saveScoreBtn.addEventListener("click", createTaskHandler) */
 
 if(timeRanOut != null) {
     var headerText = document.querySelector('#end-header');
