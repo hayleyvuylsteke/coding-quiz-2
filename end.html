@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="quiz-wrapper">
+        <header>
+            <h1>Coding Challenge Quiz</h1>
+        </header>
+        <div class="quiz-content-box">
+            <div id="home" class="flex-column flex-center">
+                <h2>You've completed the quiz!</h2>
+                <h4>Final Score</h4>
+                <h4 id="final-score"> </h4>
+                <form class="end-form-container">
+                    <p>Enter your name below to save your score</p>
+                    <input type="text" name="name" id="username" placeholder="Enter your name">
+                    <br>
+                    <button class="btn" id="saveScoreBtn" type="submit" onClick="saveHighScore(event)" disabled>Save</button>
+                </form>
+                <a href="/game.html" class="btn">Play again ▶</a>
+                <br>
+                <a href="/highscores.html" id="high-score-btn" class="btn">High Scores</a>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/end.js"></script>
+</body>
+</html>

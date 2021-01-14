@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/game.css">
+</head>
+<body>
+    <div class="quiz-wrapper">
+        <div class="quiz-header-section">
+            <header>
+                <h1>Coding Challenge Quiz</h1>
+            </header>
+            <div class="quiz-timer">
+                <p>
+                    Time remaining: 75
+                </p>
+                <p class="score-text">Score: 0</p>
+            </div>
+        </div>
+        <div class="quiz-content-box">
+            <div id="game" class="flex-column flex-center">
+                <h2 id="progressText" class="progress-text">Question # </h2>
+                <div id="question">
+                    <p>question text</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="1">Choice</p>
+                </div>
+                <br>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="2">Choice 2</p>
+                </div>
+                <br>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="3">Choice 3</p>
+                </div>
+                <br>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="4">Choice 4</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/game.js"></script>
+</body>
+</html>
